@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>七大生理平衡系統｜找出你的失衡根源</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#12100E;--warm:#FAF8F4;
+  --teal:#1A5C5A;--teal-lt:#E5F2F1;--teal-dk:#0E3A38;
+  --amber:#B06000;--amber-lt:#FEF4E6;
+  --sage:#3C6040;--sage-lt:#EAF2EA;
+  --plum:#5A1A6A;--plum-lt:#F2E8F8;
+  --rust:#A83200;--rust-lt:#FEF0E8;
+  --navy:#1A2A5A;--navy-lt:#E8EDF8;
+  --gold:#8A6400;--gold-lt:#FBF4E2;
+  --border:#E0D8CE;--text2:#524840;--text3:#9A8E84;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--warm);color:var(--ink);min-height:100vh;line-height:1.7}
+
+/* NAV */
+.nav{background:var(--ink);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.nav-logo{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:#FAF8F4;letter-spacing:.05em}
+.nav-cta{background:var(--amber);color:#fff;font-size:13px;font-weight:600;padding:7px 15px;border-radius:3px;text-decoration:none;transition:.15s}
+.nav-cta:hover{background:var(--rust)}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#0E2A28 0%,#1A5C5A 55%,#0E3A38 100%);padding:3.5rem 1.4rem 3rem;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-40px;right:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.03);pointer-events:none}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:14px}
+.hero-title{font-family:'Noto Serif TC',serif;font-size:clamp(24px,6.5vw,36px);font-weight:900;color:#FAF8F4;line-height:1.3;margin-bottom:12px}
+.hero-title .hi{color:#80E0DC}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:24px;max-width:340px}
+.hero-formula{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 16px;margin-bottom:24px;max-width:340px}
+.hf-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.hf-row:last-child{margin-bottom:0}
+.hf-label{font-size:12px;color:rgba(255,255,255,.45);width:60px;flex-shrink:0}
+.hf-val{font-size:13px;font-weight:600;color:#80E0DC}
+.hf-arr{font-size:16px;color:rgba(255,255,255,.25);margin-left:auto}
+.hero-btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn-hero{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:3px;font-size:14px;font-weight:600;text-decoration:none;transition:.15s}
+.btn-primary{background:var(--amber);color:#fff;box-shadow:0 4px 16px rgba(176,96,0,.4)}
+.btn-primary:hover{background:var(--rust)}
+.btn-outline{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25)}
+.btn-outline:hover{background:rgba(255,255,255,.08)}
+
+/* SECTIONS */
+.sec{padding:2.2rem 1.3rem}
+.sec-alt{background:#fff}
+.sec-lbl{font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--text3);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sec-lbl::before{content:'';width:14px;height:1px;background:currentColor;display:block}
+.sec-h{font-family:'Noto Serif TC',serif;font-size:21px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.4}
+.sec-sub{font-size:13px;color:var(--text2);margin-bottom:18px;line-height:1.7}
+
+/* PAGE TABS */
+.page-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:18px;overflow-x:auto;scrollbar-width:none}
+.page-tabs::-webkit-scrollbar{display:none}
+.ptab{background:none;border:none;font-size:13px;font-weight:500;color:var(--text3);padding:9px 14px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:.13s}
+.ptab.active{color:var(--teal);border-bottom-color:var(--teal);font-weight:600}
+.ppage{display:none}.ppage.active{display:block}
+
+/* MODULE CARDS */
+.mod-grid{display:flex;flex-direction:column;gap:10px}
+.mod-card{border-radius:7px;overflow:hidden;border:1px solid var(--border);background:#fff;cursor:pointer}
+.mod-head{display:flex;align-items:center;gap:11px;padding:13px 14px}
+.mod-badge{width:40px;height:40px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif TC',serif;font-size:16px;font-weight:900;flex-shrink:0}
+.mod-info{flex:1}
+.mod-name{font-size:14px;font-weight:600;color:var(--ink)}
+.mod-core{font-size:12px;color:var(--text3);margin-top:2px}
+.mod-arr{color:var(--text3);font-size:17px;transition:.2s;flex-shrink:0}
+.mod-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border)}
+.mod-body.open{display:block}
+.mod-slogan{font-size:14px;font-weight:600;color:var(--teal);font-family:'Noto Serif TC',serif;text-align:center;padding:10px;margin:8px 0;background:var(--teal-lt);border-radius:5px;line-height:1.5}
+.nut-table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0}
+.nut-table th{background:var(--ink);color:#FAF8F4;padding:7px 10px;text-align:left;font-weight:600;font-size:11px}
+.nut-table td{padding:7px 10px;border-bottom:1px solid #F0EBE6;vertical-align:top}
+.nut-table tr:last-child td{border-bottom:none}
+.nut-table tr:nth-child(even) td{background:#FAFAF8}
+.nut-name{font-weight:600;color:var(--ink)}
+.nut-fn{color:var(--text2)}
+.device-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:8px 0}
+.device-chip{background:var(--teal-lt);border:1px solid rgba(26,92,90,.15);border-radius:5px;padding:8px 11px;font-size:12px}
+.device-name{font-weight:600;color:var(--teal);margin-bottom:2px}
+.device-fn{color:var(--text2)}
+.mod-buy{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--ink);color:#FAF8F4;font-size:13px;font-weight:600;padding:11px;border-radius:4px;text-decoration:none;margin-top:12px;transition:.15s}
+.mod-buy:hover{background:var(--amber)}
+
+/* CAUSE CARDS */
+.cause-list{display:flex;flex-direction:column;gap:9px}
+.cause-card{background:#fff;border:1px solid var(--border);border-radius:7px;padding:14px}
+.cause-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cause-icon{font-size:22px;flex-shrink:0}
+.cause-title{font-size:14px;font-weight:600;color:var(--ink)}
+.cause-tag{font-size:11px;color:var(--text3);margin-top:2px}
+.cause-body{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:8px}
+.mod-chips{display:flex;flex-wrap:wrap;gap:5px}
+.mod-chip{font-size:11px;padding:3px 9px;border-radius:999px;border:1px solid var(--border);color:var(--text2)}
+
+/* QUIZ */
+.quiz-wrap{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.qpbar{height:3px;background:#EDE8E2}
+.qpfill{height:100%;background:var(--teal);transition:.4s}
+.qbody{padding:18px}
+.qq{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:14px;line-height:1.55}
+.qopts{display:flex;flex-direction:column;gap:7px}
+.qopt{background:var(--warm);border:1.5px solid var(--border);border-radius:4px;padding:11px 13px;font-size:13px;color:var(--ink);cursor:pointer;text-align:left;transition:.13s;line-height:1.5}
+.qopt:hover,.qopt.sel{border-color:var(--teal);background:var(--teal-lt)}
+.qnav{display:flex;gap:8px;margin-top:14px}
+.btn-teal{flex:1;background:var(--teal);color:#fff;border:none;border-radius:4px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.15s}
+.btn-teal:hover{background:var(--teal-dk)}
+.btn-teal:disabled{background:#C0BAB5;cursor:not-allowed}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:4px;padding:12px 14px;font-size:14px;cursor:pointer}
+
+/* RESULT */
+.res-hero{border-radius:8px;padding:20px;margin-bottom:12px}
+.res-type{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;opacity:.6}
+.res-title{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;margin-bottom:10px;line-height:1.35}
+.res-desc{font-size:13px;line-height:1.7;opacity:.8}
+.priority-wrap{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px}
+.priority-lbl{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin-bottom:10px}
+.pri-item{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border)}
+.pri-item:last-child{border-bottom:none}
+.pri-dot{color:var(--teal);font-size:14px;flex-shrink:0;margin-top:1px}
+.pri-name{font-size:13px;font-weight:600;color:var(--ink)}
+.pri-fn{font-size:12px;color:var(--text3);margin-top:1px}
+.buy-full{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--amber);color:#fff;font-size:15px;font-weight:700;padding:14px;border-radius:4px;text-decoration:none;transition:.15s;box-shadow:0 4px 16px rgba(176,96,0,.35)}
+.buy-full:hover{background:var(--rust)}
+
+/* FORMULA FLOW */
+.flow-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;margin:14px 0}
+.flow-step{background:#fff;border:1px solid var(--border);border-radius:4px;padding:9px 20px;font-size:13px;font-weight:600;color:var(--ink);text-align:center;min-width:180px}
+.flow-step.hi{background:var(--teal);color:#fff;border-color:var(--teal)}
+.flow-step.gold{background:var(--gold-lt);color:var(--gold);border-color:rgba(138,100,0,.2)}
+.flow-arr{color:var(--text3);font-size:18px;line-height:1}
+
+/* STICKY */
+.sticky{position:fixed;bottom:0;left:0;right:0;background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:11px 16px;z-index:200;display:flex;gap:10px;align-items:center}
+.sticky-txt{flex:1;font-size:12px;color:rgba(255,255,255,.5);line-height:1.4}
+.sticky-txt b{color:#80E0DC;display:block;font-size:13px;margin-bottom:1px}
+.sticky-btn{background:var(--amber);color:#fff;font-size:13px;font-weight:700;padding:11px 16px;border-radius:3px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:.15s}
+.sticky-btn:hover{background:var(--rust)}
+.spacer{height:68px}
+.toast{position:fixed;bottom:74px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:8px 18px;border-radius:999px;font-size:13px;opacity:0;transition:.3s;pointer-events:none;z-index:999;white-space:nowrap}
+.toast.show{opacity:1}
+
+/* INFO BOX */
+.info-box{border-radius:6px;padding:12px 14px;margin:10px 0;font-size:13px;line-height:1.7}
+.info-teal{background:var(--teal-lt);border-left:3px solid var(--teal);color:var(--teal-dk)}
+.info-amber{background:var(--amber-lt);border-left:3px solid var(--amber);color:var(--amber)}
+.info-gold{background:var(--gold-lt);border-left:3px solid var(--gold);color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">七大生理平衡系統</div>
+  <a class="nav-cta" href="https://myship.7-11.com.tw/general/detail/GM2407210007294" target="_blank">立即選購</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">功能醫學 × 七大模組 × 精準補充</div>
+  <h1 class="hero-title">不是缺藥才生病<br>而是<span class="hi">系統失衡</span>才生病</h1>
+  <p class="hero-sub">功能醫學的本質不是壓症狀，而是找根源 + 重建系統。找出你的哪個模組失衡，精準補充才有效。</p>
+  <div class="hero-formula">
+    <div class="hf-row"><span class="hf-label">七大模組</span><span class="hf-val">找到失衡位置</span><span class="hf-arr">→</span></div>
+    <div class="hf-row"><span class="hf-label">五大病因</span><span class="hf-val">找到失衡根源</span><span class="hf-arr">→</span></div>
+    <div class="hf-row"><span class="hf-label">精準補充</span><span class="hf-val">啟動自癒能力</span><span class="hf-arr">→</span></div>
+    <div class="hf-row"><span class="hf-label">恢復稳態</span><span class="hf-val">真正的健康</span></div>
+  </div>
+  <div class="hero-btns">
+    <a class="btn-hero btn-primary" href="#quiz">▶ 測出我的失衡模組</a>
+    <a class="btn-hero btn-outline" href="#modules">查看七大模組</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT AREA -->
+<div class="sec" id="modules">
+  <div class="sec-lbl">完整系統</div>
+  <h2 class="sec-h">找出你的失衡，再談補充</h2>
+  <p class="sec-sub">先看七大模組，再找五大病因，最後做精準補充。順序對了，效果才出來。</p>
+
+  <div class="page-tabs">
+    <button class="ptab active" onclick="switchTab('mods',this)">七大模組</button>
+    <button class="ptab" onclick="switchTab('causes',this)">五大病因</button>
+    <button class="ptab" onclick="switchTab('formula',this)">修復公式</button>
+  </div>
+
+  <!-- MODULES TAB -->
+  <div class="ppage active" id="tab-mods">
+    <div class="mod-grid" id="mod-grid"></div>
+  </div>
+
+  <!-- CAUSES TAB -->
+  <div class="ppage" id="tab-causes">
+    <div class="info-box info-teal" style="margin-bottom:14px">
+      五大病因相互作用，共同衝擊七大模組，是慢性病的真正根源。找出你的主要病因，才能從根修復。
+    </div>
+    <div class="cause-list" id="cause-list"></div>
+  </div>
+
+  <!-- FORMULA TAB -->
+  <div class="ppage" id="tab-formula">
+    <div class="info-box info-gold" style="margin-bottom:14px">
+      <strong>終極銷售公式：</strong>不是治症狀，而是重建穩態。讓七大模組恢復平衡，自癒能力自然啟動。
+    </div>
+    <div class="flow-wrap" id="flow-area"></div>
+    <div class="info-box info-amber" style="margin-top:14px">
+      <strong>三大金句：</strong><br>
+      不是缺藥才生病，而是系統失衡才生病。<br>
+      不是治症狀，而是重建穩態。<br>
+      健康的核心競爭力，不是沒有疾病，而是恢復平衡的能力。
+    </div>
+    <a class="buy-full" href="https://myship.7-11.com.tw/general/detail/GM2407210007294" target="_blank" style="margin-top:14px;display:flex">
+      ☕ 前往選購修復方案 →
+    </a>
+  </div>
+</div>
+
+<!-- QUIZ SECTION -->
+<div class="sec sec-alt" id="quiz">
+  <div class="sec-lbl">2 分鐘自我評估</div>
+  <h2 class="sec-h">你的哪個系統最需要修復？</h2>
+  <p class="sec-sub">根據你的症狀，找出最需要優先處理的生理模組與補充方案。</p>
+  <div id="quiz-area"></div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="sec" style="background:var(--teal-dk);padding:2.5rem 1.4rem">
+  <div style="text-align:center;margin-bottom:20px">
+    <div class="sec-lbl" style="color:rgba(255,255,255,.3);justify-content:center">系統修復，從今天開始</div>
+    <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;color:#FAF8F4;margin-bottom:8px;line-height:1.4">健康的核心競爭力<br>是恢復平衡的能力</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;max-width:300px;margin:0 auto">找對模組，補對方向，讓七大系統重回動態平衡。</p>
+  </div>
+  <a class="buy-full" href="https://myship.7-11.com.tw/general/detail/GM2407210007294" target="_blank" style="max-width:320px;margin:0 auto;display:flex">
+    ☕ 前往選購我的方案 →
+  </a>
+  <p style="text-align:center;font-size:12px;color:rgba(255,255,255,.2);margin-top:10px">7-ELEVEN myship · 冠貞生技</p>
+</div>
+
+<div class="spacer"></div>
+<div class="sticky">
+  <div class="sticky-txt"><b>七大平衡方案</b>找出失衡，精準補充</div>
+  <a class="sticky-btn" href="https://myship.7-11.com.tw/general/detail/GM2407210007294" target="_blank">立即選購 →</a>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const SHOP='https://myship.7-11.com.tw/general/detail/GM2407210007294';
+
+// ── MODULE DATA ───────────────────────────────────
+const MODULES=[
+  {
+    num:'①',name:'消化・吸收・腸道',
+    core:'腸道是第二大腦，是健康的起點',
+    slogan:'吸收能力 ＝ 健康起點',
+    color:'#1A5C5A',bg:'#E5F2F1',
+    nutrients:[
+      {name:'酶菌醣體',fn:'腸道菌叢平衡，修復腸道生態'},
+      {name:'丁酸鈉',fn:'腸壁修復，腸道保護關鍵'},
+      {name:'5R（PHGG）',fn:'腸黏膜再生，腸道功能重建'},
+      {name:'孢子益生菌',fn:'產丁酸，強化腸道屏障'},
+      {name:'消化全酶',fn:'促進食物分解吸收'},
+      {name:'NAC',fn:'腸黏液保護，抗氧化'},
+      {name:'鋅',fn:'緊密連結修復，防腸漏'},
+      {name:'腸寶（B3）',fn:'腸細胞能量供給'},
+      {name:'槲皮素',fn:'降低腸漏，抗發炎'},
+      {name:'5R修復全方',fn:'腸道完整修復程序'},
+    ],
+    hydrogen:'降低腸道氧化壓力，促進益菌活性',
+    negion:'副交感活化，促進腸道蠕動',
+  },
+  {
+    num:'②',name:'免疫・發炎平衡',
+    core:'慢性低度發炎是所有慢性病的共同土壤',
+    slogan:'免疫 ＝ 辨識自己與非自己',
+    color:'#3C6040',bg:'#EAF2EA',
+    nutrients:[
+      {name:'亞麻仁油',fn:'Omega-3 發炎調節，促進抗炎介質'},
+      {name:'薑黃素',fn:'NF-κB 調控，核心抗發炎'},
+      {name:'蜂膠',fn:'廣譜免疫平衡支持'},
+      {name:'Beta葡聚醣',fn:'NK 細胞活化，免疫監控'},
+      {name:'維生素 D3',fn:'T細胞調節，免疫辨識'},
+      {name:'鋅',fn:'免疫酵素核心輔因子'},
+      {name:'硒',fn:'抗氧化，麩胱甘肽過氧化酶'},
+      {name:'憂遁草',fn:'天然發炎調節，草本免疫'},
+      {name:'美寶（EGCG）',fn:'兒茶素抗氧化，細胞保護'},
+      {name:'NAC',fn:'穀胱甘肽前驅物，免疫修復'},
+    ],
+    hydrogen:'降低自由基，減少氧化損傷',
+    negion:'降低交感過度活化，平衡免疫',
+  },
+  {
+    num:'③',name:'細胞能量・粒線體',
+    core:'粒線體是生命發電廠，能量不足萬病生',
+    slogan:'粒線體 ＝ 生命發電廠',
+    color:'#8A6400',bg:'#FBF4E2',
+    nutrients:[
+      {name:'NMN',fn:'NAD+ 直接前驅物，能量代謝'},
+      {name:'NR',fn:'NAD+ 提升，抗老化'},
+      {name:'輔酶 Q10',fn:'電子傳遞鏈核心，ATP 生成'},
+      {name:'B3（菸鹼酸）',fn:'NAD+ 生成，能量代謝'},
+      {name:'加強 B 群',fn:'ATP 代謝全套輔酶'},
+      {name:'大補王',fn:'綜合能量與代謝支持'},
+      {name:'美寶',fn:'抗氧化循環，保護粒線體'},
+      {name:'鎂',fn:'ATP 穩定，粒線體膜電位'},
+      {name:'粒線寶',fn:'粒線體保護與修復'},
+      {name:'D-Ribose',fn:'ATP 直接原料，快速補能'},
+    ],
+    hydrogen:'降低粒線體氧化壓力，提升 ATP 效率',
+    negion:'提升細胞電位，促進能量生成',
+  },
+  {
+    num:'④',name:'解毒・生物轉化',
+    core:'解毒能力決定你的身體能承受多少毒素',
+    slogan:'解毒能力 ＝ 生存能力',
+    color:'#5A1A6A',bg:'#F2E8F8',
+    nutrients:[
+      {name:'NAC',fn:'穀胱甘肽生成，解毒主力'},
+      {name:'加強 B 群',fn:'Phase I/II 解毒酵素輔因子'},
+      {name:'TMG',fn:'甲基化支持，毒素轉化'},
+      {name:'能量方',fn:'肝臟與壓力支持複方'},
+      {name:'全酶',fn:'消化代謝負擔降低'},
+      {name:'硒',fn:'解毒酵素核心礦物質'},
+      {name:'美寶',fn:'抗氧化，清除代謝廢物'},
+      {name:'憂遁草',fn:'肝臟解毒支持，草本護肝'},
+      {name:'消化全酶',fn:'降低肝臟代謝負擔'},
+      {name:'維生素 C',fn:'抗氧化與組織修復'},
+    ],
+    hydrogen:'減少氧化負擔，輔助解毒路徑',
+    negion:'改善微循環，促進代謝廢物排出',
+  },
+  {
+    num:'⑤',name:'激素・神經傳導',
+    core:'荷爾蒙與神經傳導的平衡，決定情緒・睡眠・代謝',
+    slogan:'控制系統 ＝ 荷爾蒙 ＋ 神經傳導',
+    color:'#A83200',bg:'#FEF0E8',
+    nutrients:[
+      {name:'青春方',fn:'睡眠修復，褪黑激素支持'},
+      {name:'能量方',fn:'HPA 軸支持，腎上腺'},
+      {name:'DHEA',fn:'類固醇前驅物，荷爾蒙平衡'},
+      {name:'色胺酸（銀杏複方）',fn:'血清素前驅物，情緒循環'},
+      {name:'GABA',fn:'抑制神經，降低焦慮'},
+      {name:'鎂',fn:'神經穩定，壓力調節'},
+      {name:'亞麻仁油',fn:'神經膜流動性，訊號傳遞'},
+      {name:'B6',fn:'神經傳導物質合成輔因子'},
+      {name:'神經營養素',fn:'神經修復，認知支持'},
+      {name:'NMN',fn:'細胞訊號，能量提升'},
+    ],
+    hydrogen:'降低 HPA 軸壓力氧化損傷',
+    negion:'副交感神經活化，穩定情緒',
+  },
+  {
+    num:'⑥',name:'結構完整性',
+    core:'從細胞膜到肌肉骨骼，結構是功能的載體',
+    slogan:'結構 ＝ 功能載體',
+    color:'#1A2A5A',bg:'#E8EDF8',
+    nutrients:[
+      {name:'亞麻仁油',fn:'細胞膜流動性，Omega-3 構成'},
+      {name:'蛋白質',fn:'組織原料，修復基礎'},
+      {name:'膠原蛋白',fn:'結締組織，皮膚骨骼'},
+      {name:'維生素 C＋加強B群',fn:'膠原生成必需因子'},
+      {name:'MSM',fn:'軟組織支持，消炎'},
+      {name:'葡萄糖胺',fn:'關節基質，軟骨保護'},
+      {name:'透明質酸鈉',fn:'潤滑保水，關節緩衝'},
+      {name:'鎂',fn:'肌肉放鬆，電解質'},
+      {name:'維生素 D3',fn:'骨骼代謝，鈣吸收'},
+      {name:'K2',fn:'鈣質導向骨骼，防動脈鈣化'},
+    ],
+    hydrogen:'降低運動氧化壓力，加速恢復',
+    negion:'促進微循環，組織修復',
+  },
+  {
+    num:'⑦',name:'心理・精神・靈性',
+    core:'心理壓力是多種生理失衡的驅動力',
+    slogan:'預測系統 ＝ 情緒系統',
+    color:'#3C6040',bg:'#EAF2EA',
+    nutrients:[
+      {name:'GABA',fn:'放鬆，降低神經過度興奮'},
+      {name:'L-茶胺酸',fn:'α波增加，放鬆不嗜睡'},
+      {name:'鎂',fn:'壓力調節，神經穩定'},
+      {name:'色胺酸（銀杏複方）',fn:'血清素支持，情緒穩定'},
+      {name:'亞麻仁油',fn:'情緒穩定，神經膜健康'},
+      {name:'加強 B 群',fn:'神經代謝，壓力消耗補充'},
+      {name:'青春方',fn:'睡眠支持，修復節律'},
+      {name:'神經營養素',fn:'神經修復，認知保護'},
+      {name:'NMN',fn:'能量提升，細胞活力'},
+      {name:'能量方',fn:'壓力適應支持，HPA 軸'},
+    ],
+    hydrogen:'降低疲勞與氧化壓力，穩定情緒基礎',
+    negion:'提升副交感活性，放鬆與深睡',
+  },
+];
+
+// ── CAUSE DATA ────────────────────────────────────
+const CAUSES=[
+  {
+    icon:'🦠',title:'過敏原與微生物',tag:'衝擊消化・免疫・發炎模組',
+    body:'食物敏感（麩質、乳製品）、環境過敏原、病原體感染，以及腸道菌群失調，直接破壞消化與免疫平衡。',
+    mods:['消化・腸道','免疫・發炎'],
+  },
+  {
+    icon:'🥗',title:'營養與飲食',tag:'影響所有七大模組的基礎',
+    body:'營養不足（蛋白質、必需脂肪酸、維生素礦物質）以及過剩（精製糖、反式脂肪、過量Omega-6），同時損害能量、荷爾蒙、結構與解毒。',
+    mods:['細胞能量','解毒','結構完整','激素神經'],
+  },
+  {
+    icon:'☠️',title:'環境毒素',tag:'增加解毒負擔，氧化壓力',
+    body:'重金屬、農藥、塑化劑、空氣污染，持續增加肝臟解毒負擔，破壞細胞膜完整性與荷爾蒙平衡。',
+    mods:['解毒・轉化','結構完整','激素神經'],
+  },
+  {
+    icon:'🧠',title:'壓力與創傷',tag:'透過 HPA 軸擾亂全身系統',
+    body:'心理、情緒、生理壓力透過 HPA 軸（下丘腦-垂體-腎上腺）擾亂激素與神經傳導，同時消耗大量營養素並加劇發炎。',
+    mods:['激素・神經','免疫・發炎','細胞能量'],
+  },
+  {
+    icon:'🧬',title:'遺傳與表觀遺傳',tag:'是所有因素作用的背景板',
+    body:'基因本身不決定命運，但環境、飲食、壓力會「開關基因」。解毒基因缺陷者更容易受毒素傷害，需要更積極的支持。',
+    mods:['所有模組（背景影響）'],
+  },
+];
+
+// ── QUIZ DATA ─────────────────────────────────────
+const QS=[
+  {
+    q:'你最困擾的症狀是哪一類？',
+    opts:['腸胃不好：脹氣、便秘、消化差','容易感冒、過敏、皮膚發炎','長期疲勞、做什麼都沒力','情緒起伏大、焦慮、睡不好'],
+    scores:[0,1,2,3],
+  },
+  {
+    q:'你的生活型態最符合哪一種？',
+    opts:['飲食不規律，常外食，少吃蔬菜','工作壓力大，長期緊繃，難以放鬆','久坐少動，常感覺身體沉重','作息不規律，睡眠品質差'],
+    scores:[0,3,2,3],
+  },
+  {
+    q:'以下症狀你有哪些？',
+    opts:['腹瀉便秘交替，食物敏感','慢性疼痛，容易水腫，免疫低下','腦霧記憶差，注意力不集中','心悸、手腳冰冷、荷爾蒙紊亂'],
+    scores:[0,1,2,3],
+  },
+  {
+    q:'你最想優先改善的是？',
+    opts:['讓腸胃恢復正常，吸收變好','讓免疫更穩定，不再反覆生病','讓能量回來，不再這麼累','讓情緒穩定，睡眠深沉'],
+    scores:[0,1,2,3],
+  },
+];
+
+const RESULTS=[
+  {
+    color:'#1A5C5A',textColor:'#E5F2F1',
+    type:'腸道修復型',title:'你的根源在腸道，先修腸，萬病少一半',
+    desc:'腸道是健康的起點。你的症狀顯示腸道菌叢失衡、腸黏膜可能受損，導致營養吸收不良並引發全身性的連鎖問題。',
+    priority:[
+      {name:'丁酸鈉',fn:'修復腸壁屏障，腸道保護第一'},
+      {name:'孢子益生菌',fn:'重建菌叢，強化自然產丁酸能力'},
+      {name:'消化全酶',fn:'改善消化吸收，讓補充發揮效果'},
+      {name:'鋅',fn:'緊密連結修復，防止腸漏持續'},
+    ],
+  },
+  {
+    color:'#3C6040',textColor:'#EAF2EA',
+    type:'免疫抗炎型',title:'你的根源是慢性發炎，先滅火，系統才能修復',
+    desc:'慢性低度發炎是幾乎所有慢性病的共同土壤。你的免疫系統長期在高警備狀態，需要精準的抗炎支持才能讓系統真正恢復。',
+    priority:[
+      {name:'薑黃素',fn:'NF-κB 核心調控，抗炎主力'},
+      {name:'亞麻仁油（Omega-3）',fn:'轉化抗炎介質，調節免疫極化'},
+      {name:'維生素 D3',fn:'T細胞調節，免疫辨識修復'},
+      {name:'NAC',fn:'穀胱甘肽前驅物，全身抗氧化'},
+    ],
+  },
+  {
+    color:'#8A6400',textColor:'#FBF4E2',
+    type:'能量修復型',title:'你的根源在粒線體，先補能量，才有力氣修復',
+    desc:'細胞能量不足讓你的身體進入節能模式，補了也吸收不了。粒線體功能修復是一切修復的動力來源。',
+    priority:[
+      {name:'輔酶 Q10',fn:'電子傳遞鏈核心，ATP 直接提升'},
+      {name:'加強 B 群',fn:'代謝輔酶全套，能量循環啟動'},
+      {name:'NMN',fn:'NAD+ 生成，細胞能量代謝'},
+      {name:'鎂',fn:'ATP 穩定，粒線體保護'},
+    ],
+  },
+  {
+    color:'#5A1A6A',textColor:'#F2E8F8',
+    type:'神經情緒型',title:'你的根源在 HPA 軸，先穩神經，再談修復',
+    desc:'壓力透過 HPA 軸擾亂了你的激素與神經傳導系統。修復情緒與睡眠的底層，才能讓其他系統的修復真正發生。',
+    priority:[
+      {name:'鎂',fn:'神經穩定，壓力消耗核心補充'},
+      {name:'能量方',fn:'HPA 軸支持，腎上腺修復'},
+      {name:'青春方',fn:'睡眠節律修復，夜間自癒啟動'},
+      {name:'GABA + 茶胺酸',fn:'降低神經過度興奮，恢復平衡'},
+    ],
+  },
+];
+
+// ── FORMULA FLOW DATA ─────────────────────────────
+const FLOW_STEPS=[
+  {text:'七大模組評估',cls:'hi'},
+  {text:'找到失衡位置（Where）',cls:''},
+  {text:'五大病因分析',cls:'hi'},
+  {text:'找到失衡根源（Why）',cls:''},
+  {text:'移除致病因素',cls:''},
+  {text:'精準營養補充',cls:'hi'},
+  {text:'高濃度負離子機',cls:'hi'},
+  {text:'氫氧水',cls:'hi'},
+  {text:'七大模組恢復平衡',cls:''},
+  {text:'自癒能力啟動',cls:'gold'},
+  {text:'恢復稳態（Homeostasis）',cls:'gold'},
+];
+
+// ── BUILD MODULES ─────────────────────────────────
+function buildMods(){
+  document.getElementById('mod-grid').innerHTML=MODULES.map((m,i)=>`
+    <div class="mod-card" id="mc-${i}">
+      <div class="mod-head" onclick="toggleMod(${i})">
+        <div class="mod-badge" style="background:${m.bg};color:${m.color}">${m.num}</div>
+        <div class="mod-info">
+          <div class="mod-name">${m.name}</div>
+          <div class="mod-core">${m.core}</div>
+        </div>
+        <span class="mod-arr" id="marr-${i}">›</span>
+      </div>
+      <div class="mod-body" id="mb-${i}">
+        <div class="mod-slogan" style="color:${m.color};background:${m.bg}">${m.slogan}</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin:10px 0 6px">10大精準營養素</div>
+        <table class="nut-table">
+          <thead><tr><th>營養素</th><th>核心機制</th></tr></thead>
+          <tbody>
+            ${m.nutrients.map(n=>`<tr><td><span class="nut-name">${n.name}</span></td><td class="nut-fn">${n.fn}</td></tr>`).join('')}
+          </tbody>
+        </table>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin:10px 0 6px">輔助設備</div>
+        <div class="device-row">
+          <div class="device-chip"><div class="device-name">氫氧水</div><div class="device-fn">${m.hydrogen}</div></div>
+          <div class="device-chip"><div class="device-name">高濃度負離子機</div><div class="device-fn">${m.negion}</div></div>
+        </div>
+        <a class="mod-buy" href="${SHOP}" target="_blank">選購「${m.name}」方案 →</a>
+      </div>
+    </div>`).join('');
+}
+
+function toggleMod(i){
+  const b=document.getElementById('mb-'+i);
+  const a=document.getElementById('marr-'+i);
+  const on=b.classList.toggle('open');
+  a.textContent=on?'⌄':'›';
+}
+
+// ── BUILD CAUSES ──────────────────────────────────
+function buildCauses(){
+  document.getElementById('cause-list').innerHTML=CAUSES.map(c=>`
+    <div class="cause-card">
+      <div class="cause-head">
+        <div class="cause-icon">${c.icon}</div>
+        <div><div class="cause-title">${c.title}</div><div class="cause-tag">${c.tag}</div></div>
+      </div>
+      <div class="cause-body">${c.body}</div>
+      <div class="mod-chips">${c.mods.map(m=>`<span class="mod-chip">${m}</span>`).join('')}</div>
+    </div>`).join('');
+}
+
+// ── BUILD FORMULA ─────────────────────────────────
+function buildFlow(){
+  document.getElementById('flow-area').innerHTML=FLOW_STEPS.map((s,i)=>`
+    <div class="flow-step ${s.cls}">${s.text}</div>
+    ${i<FLOW_STEPS.length-1?'<div class="flow-arr">↓</div>':''}`).join('');
+}
+
+// ── TABS ──────────────────────────────────────────
+function switchTab(id,btn){
+  document.querySelectorAll('.ppage').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── QUIZ ──────────────────────────────────────────
+let qState={cur:0,ans:[],done:false};
+
+function renderQuiz(){
+  const area=document.getElementById('quiz-area');
+  if(qState.done){renderResult();return;}
+  const q=QS[qState.cur];
+  const pct=Math.round(qState.cur/QS.length*100);
+  const sel=qState.ans[qState.cur];
+  area.innerHTML=`
+    <div class="quiz-wrap">
+      <div class="qpbar"><div class="qpfill" style="width:${pct}%"></div></div>
+      <div class="qbody">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:8px">第 ${qState.cur+1} 題 / 共 ${QS.length} 題</div>
+        <div class="qq">${q.q}</div>
+        <div class="qopts">
+          ${q.opts.map((o,i)=>`<button class="qopt ${sel===i?'sel':''}" onclick="pickA(${i})">${o}</button>`).join('')}
+        </div>
+        <div class="qnav">
+          ${qState.cur>0?`<button class="btn-ghost" onclick="qBack()">上一題</button>`:''}
+          <button class="btn-teal" onclick="qNext()" ${sel===undefined?'disabled':''}>
+            ${qState.cur<QS.length-1?'下一題 →':'查看我的修復方案 →'}
+          </button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function pickA(i){qState.ans[qState.cur]=i;renderQuiz();}
+function qBack(){if(qState.cur>0){qState.cur--;renderQuiz();}}
+function qNext(){
+  if(qState.ans[qState.cur]===undefined)return;
+  qState.cur++;
+  if(qState.cur>=QS.length){qState.done=true;renderResult();}
+  else renderQuiz();
+}
+
+function renderResult(){
+  const total=qState.ans.reduce((s,a,i)=>s+(QS[i].scores[a]||0),0);
+  const idx=Math.min(Math.floor(total/3),RESULTS.length-1);
+  const res=RESULTS[idx];
+  document.getElementById('quiz-area').innerHTML=`
+    <div class="res-hero" style="background:${res.color};color:${res.textColor}">
+      <div class="res-type">${res.type}</div>
+      <div class="res-title">${res.title}</div>
+      <div class="res-desc">${res.desc}</div>
+    </div>
+    <div class="priority-wrap">
+      <div class="priority-lbl">你的優先修復方案</div>
+      ${res.priority.map(p=>`
+        <div class="pri-item">
+          <span class="pri-dot">✦</span>
+          <div><div class="pri-name">${p.name}</div><div class="pri-fn">${p.fn}</div></div>
+        </div>`).join('')}
+    </div>
+    <a class="buy-full" href="${SHOP}" target="_blank">☕ 依這個方案選購 →</a>
+    <div style="text-align:center;margin-top:10px">
+      <button style="background:none;border:none;font-size:13px;color:var(--text3);cursor:pointer" onclick="resetQ()">重新評估</button>
+    </div>`;
+}
+function resetQ(){qState={cur:0,ans:[],done:false};renderQuiz();}
+
+// ── INIT ─────────────────────────────────────────
+buildMods();buildCauses();buildFlow();renderQuiz();
+</script>
+</body>
+</html>
